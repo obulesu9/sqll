@@ -1,0 +1,67 @@
+1. Write a query to calculate the average age of employees in each department.
+
+ans 
+  
+select d.name as department_name, round(avg(e.age),2) as average_age from employees
+e join departments d on e.department_id = d.id group by d.name;
+
+Output:
+
++-----------------+-------------+
+| department_name | average_age |
++-----------------+-------------+
+| HR              |       38.40 |
+| Finance         |       41.45 |
+| Marketing       |       41.40 |
+| Operations      |       38.55 |
+| IT              |       37.55 |
++-----------------+-------------+
+
+
+2. Write a query to find the department with the highest number of employees whose age is above 40.
+   select d.name as department_name,count(e.id) as employee_count from employees 
+e join departments d on e.department_id =d.id where e.age>40 group by d.name order by employee_count desc limit 1;
+
++-----------------+----------------+
+| department_name | employee_count |
++-----------------+----------------+
+| Operations      |            101 |
++-----------------+----------------+
+
+
+
+
+
+
+
+3.Write a query to retrieve the count of employees who have in joined in last 100 days.
+
+select count(*) as recent_joiners from employees where  joining_date>=current_date() - interval 100 day;
+Output:
+
++----------------+
+| recent_joiners |
++----------------+
+|            100 |
++----------------+
+
+
+
+4. Write a query to update the joining date of all employees in the HR department to the yesterday.
+update employees e join departments d on e.department_id = d.id
+set e.joining_date = current_date() - interval 1 day where d.name ='HR';
+
+5. Write a query to retrieve the count of employees who have in joined in last 100 days.
+
+update employees e join departments d on e.department_id = d.id
+set e.joining_date = current_date() - interval 1 day where d.name ='HR';
+
+select count(*) as recent_joiners from employees where  joining_date>=current_date() - interval 100 day
+Output:
+
++----------------+
+| recent_joiners |
++----------------+
+|            280 |
++----------------+
+ 
