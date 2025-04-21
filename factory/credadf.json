@@ -1,0 +1,9 @@
+{
+	"name": "credadf",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ff932d3d-4601-4301-8421-55b073bb59c6",
+		"tenantId": "a3bcce26-bd00-41b6-94ef-7506f110c3b8"
+	}
+}
